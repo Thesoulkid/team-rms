@@ -151,6 +151,26 @@ footer {
     .image-slider {
         max-width: 800px; /* Larger slider for bigger screens */
     }
+    .surprise-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.surprise-button-container button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #ff5f6d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.surprise-button-container button:hover {
+    background-color: #ff7e5f;
+    transform: scale(1.1);
+}
 
     footer {
         font-size: 1rem;
