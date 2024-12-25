@@ -1,18 +1,6 @@
-// Toggle Drawer
-function toggleDrawer() {
-    const drawer = document.getElementById('drawer');
-    if (drawer.style.left === '0px') {
-        drawer.style.left = '-250px';
-    } else {
-        drawer.style.left = '0px';
-    }
-}
-
-// Open Happy New Year Page
 function openHappyNewYear() {
     const newTab = window.open("", "_blank"); // Open a new tab
 
-    // Generate HTML content for the new tab
     newTab.document.write(`
         <!DOCTYPE html>
         <html lang="en">
@@ -86,5 +74,5 @@ function openHappyNewYear() {
         </html>
     `);
 
-    newTab.document.close(); // Close the document stream
+    newTab.document.close();
 }
