@@ -79,7 +79,7 @@ function openHappyNewYear() {
             <div class="fireworks"></div>
             <div>
                 <h1>Happy New Year 🎉</h1>
-                <p>Wishing you a year full of joy, happiness, and success!</p>
+                <p>RMS-TEAM Wishing you a year full of joy, happiness, and success!</p>
                 <button onclick="window.close()">Close</button>
             </div>
         </body>
