@@ -1,90 +1,158 @@
-// Toggle Drawer
-function toggleDrawer() {
-    const drawer = document.getElementById('drawer');
-    if (drawer.style.left === '0px') {
-        drawer.style.left = '-250px';
-    } else {
-        drawer.style.left = '0px';
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #2c2c2c;
+    color: white;
+}
+
+/* Drawer Navigation */
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    background: #620000;
+    color: white;
+}
+
+.drawer-content {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #000;
+    transition: 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.drawer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drawer-content ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.drawer-content ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    background: #620000;
+    font-size: 1.5rem;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    margin: 20px auto;
+    width: 90%;
+    background: #ccc;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    width: 50%;
+    height: 100%;
+    background: red;
+    border-radius: 5px;
+    transition: width 0.3s;
+}
+
+/* Horizontal Image Slider */
+.image-slider {
+    width: 100%;
+    max-width: 600px; /* Ensures the slider doesn’t grow too big on larger screens */
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.images img {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #620000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.8rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Small devices (phones, portrait orientation) */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.2rem;
+    }
+
+    .menu-btn {
+        font-size: 20px;
+    }
+
+    .progress-bar-container {
+        width: 95%;
+    }
+
+    footer {
+        font-size: 0.7rem;
+    }
+
+    .drawer-content {
+        width: 70%; /* Smaller drawer width for smaller screens */
     }
 }
 
-// Open Happy New Year Page
-function openHappyNewYear() {
-    const newTab = window.open("", "_blank"); // Open a new tab
+/* Large devices (PCs, landscape orientation) */
+@media (min-width: 1024px) {
+    header {
+        font-size: 2rem;
+    }
 
-    // Generate HTML content for the new tab
-    newTab.document.write(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Happy New Year</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    margin: 0;
-                    background: linear-gradient(to right, #ff5f6d, #ffc371);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                    color: white;
-                    text-align: center;
-                }
-                h1 {
-                    font-size: 3rem;
-                    margin: 0;
-                    animation: glow 2s infinite alternate;
-                }
-                p {
-                    font-size: 1.5rem;
-                }
-                .fireworks {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: url('https://i.gifer.com/2AB.gif') center/cover no-repeat;
-                    z-index: -1;
-                    opacity: 0.8;
-                }
-                @keyframes glow {
-                    from {
-                        text-shadow: 0 0 10px #fff, 0 0 20px #ff9, 0 0 30px #ff6;
-                    }
-                    to {
-                        text-shadow: 0 0 20px #fff, 0 0 30px #ff9, 0 0 40px #ff6;
-                    }
-                }
-                button {
-                    margin-top: 20px;
-                    padding: 10px 20px;
-                    background: white;
-                    color: #ff5f6d;
-                    border: none;
-                    border-radius: 5px;
-                    font-size: 1rem;
-                    cursor: pointer;
-                    transition: background 0.3s;
-                }
-                button:hover {
-                    background: #ff5f6d;
-                    color: white;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="fireworks"></div>
-            <div>
-                <h1>Happy New Year 🎉</h1>
-                <p>Wishing you a year full of joy, happiness, and success!</p>
-                <button onclick="window.close()">Close</button>
-            </div>
-        </body>
-        </html>
-    `);
+    .image-slider {
+        max-width: 800px; /* Larger slider for bigger screens */
+    }
 
-    newTab.document.close(); // Close the document stream
+    footer {
+        font-size: 1rem;
+    }
 }
