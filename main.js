@@ -24,7 +24,7 @@ function openHappyNewYear() {
                 body {
                     font-family: Arial, sans-serif;
                     margin: 0;
-                    background: linear-gradient(to right, #ff5f6d, #ffc371);
+                    background: linear-gradient(to right, #ff7e5f, #feb47b);
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -33,7 +33,7 @@ function openHappyNewYear() {
                     text-align: center;
                 }
                 h1 {
-                    font-size: 3rem;
+                    font-size: 4rem;
                     margin: 0;
                     animation: glow 2s infinite alternate;
                 }
@@ -79,7 +79,7 @@ function openHappyNewYear() {
             <div class="fireworks"></div>
             <div>
                 <h1>Happy New Year 🎉</h1>
-                <p>RMS-TEAM Wishing you a year full of joy, happiness, and success!</p>
+                <p>Wishing you a year full of joy, happiness, and success!</p>
                 <button onclick="window.close()">Close</button>
             </div>
         </body>
