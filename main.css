@@ -1,0 +1,114 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #2c2c2c;
+    color: white;
+}
+
+/* Drawer Navigation */
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    background: #620000;
+    color: white;
+}
+
+.drawer-content {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #000;
+    transition: 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.drawer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drawer-content ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.drawer-content ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    background: #620000;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    margin: 20px auto;
+    width: 90%;
+    background: #ccc;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    width: 50%;
+    height: 100%;
+    background: red;
+    border-radius: 5px;
+    transition: width 0.3s;
+}
+
+/* Image Slider */
+.image-slider {
+    width: 90%;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.images img {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #620000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
