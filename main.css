@@ -54,6 +54,7 @@ header {
     text-align: center;
     padding: 20px;
     background: #620000;
+    font-size: 1.5rem;
 }
 
 /* Progress Bar */
@@ -75,7 +76,8 @@ header {
 
 /* Horizontal Image Slider */
 .image-slider {
-    width: 90%;
+    width: 100%;
+    max-width: 600px; /* Ensures the slider doesn’t grow too big on larger screens */
     margin: 20px auto;
     overflow: hidden;
     position: relative;
@@ -101,6 +103,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 0.8rem;
 }
 
 .social-icons {
@@ -112,4 +115,44 @@ footer {
 .social-icons img {
     width: 24px;
     height: 24px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Small devices (phones, portrait orientation) */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.2rem;
+    }
+
+    .menu-btn {
+        font-size: 20px;
+    }
+
+    .progress-bar-container {
+        width: 95%;
+    }
+
+    footer {
+        font-size: 0.7rem;
+    }
+
+    .drawer-content {
+        width: 70%; /* Smaller drawer width for smaller screens */
+    }
+}
+
+/* Large devices (PCs, landscape orientation) */
+@media (min-width: 1024px) {
+    header {
+        font-size: 2rem;
+    }
+
+    .image-slider {
+        max-width: 800px; /* Larger slider for bigger screens */
+    }
+
+    footer {
+        font-size: 1rem;
+    }
 }
