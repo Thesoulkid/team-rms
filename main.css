@@ -73,12 +73,13 @@ header {
     transition: width 0.3s;
 }
 
-/* Image Slider */
+/* Horizontal Image Slider */
 .image-slider {
     width: 90%;
     margin: 20px auto;
     overflow: hidden;
     position: relative;
+    border-radius: 10px;
 }
 
 .images {
