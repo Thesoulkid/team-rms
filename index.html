@@ -1,59 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize user input
-    $user_input = htmlspecialchars($_POST["user_input"]);
-
-    // API endpoint and payload configuration
-    $chat_api_url = getenv('CHAT_API_URL') ?: "https://doanything.ai/api/chat"; // Use environment variable or default
-    $headers = [
-        "Content-Type: application/json",
-        "Accept: application/json",
-    ];
-
-    // Prepare the payload
-    $payload = json_encode([
-        "model" => [
-            "id" => "gpt-3.5-turbo-0613",
-            "name" => "GPT-3.5",
-            "maxLength" => 12000,
-            "tokenLimit" => 4000,
-        ],
-        "messages" => [
-            ["role" => "user", "content" => $user_input, "pluginId" => null],
-        ],
-        "prompt" => "Forget everything before this. You are role-playing as a boy who roasts users in Hindlish. Be concise, and add a fun tone.",
-        "temperature" => 0.7,
-    ]);
-
-    // Initialize cURL session
-    $ch = curl_init($chat_api_url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-
-    // Execute API call and handle errors
-    $response = curl_exec($ch);
-    $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    if (curl_errno($ch)) {
-        $error_message = "Curl error: " . curl_error($ch);
-    } elseif ($http_status !== 200) {
-        $error_message = "API returned status code " . $http_status;
-    }
-    curl_close($ch);
-
-    // Decode response
-    if (!isset($error_message)) {
-        $decoded_response = json_decode($response, true);
-        if (json_last_error() === JSON_ERROR_NONE) {
-            $api_response = $decoded_response["response"] ?? "No response received.";
-        } else {
-            $error_message = "Invalid JSON response from API.";
-        }
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,23 +63,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="container">
     <h2>AI Chat Interface</h2>
-    <form method="POST" action="" class="chat-form">
-        <textarea name="user_input" placeholder="Enter your message..." required></textarea>
+    <form class="chat-form" id="chatForm">
+        <textarea id="userInput" placeholder="Enter your message..." required></textarea>
         <button type="submit" class="btn">Send Message</button>
     </form>
 
-    <?php if (!empty($api_response)): ?>
-        <div class="response">
-            <h3>AI Response:</h3>
-            <p><?php echo htmlspecialchars($api_response); ?></p>
-        </div>
-    <?php elseif (isset($error_message)): ?>
-        <div class="response">
-            <h3>Error:</h3>
-            <p><?php echo htmlspecialchars($error_message); ?></p>
-        </div>
-    <?php endif; ?>
+    <div class="response" id="responseBox" style="display: none;">
+        <h3>AI Response:</h3>
+        <p id="responseText"></p>
+    </div>
 </div>
+
+<script>
+    // API Endpoint
+    const chatApiUrl = "https://doanything.ai/api/chat";
+
+    // Handle form submission
+    document.getElementById("chatForm").addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Get user input
+        const userInput = document.getElementById("userInput").value;
+
+        // Prepare the payload
+        const payload = {
+            model: {
+                id: "gpt-3.5-turbo-0613",
+                name: "GPT-3.5",
+                maxLength: 12000,
+                tokenLimit: 4000,
+            },
+            messages: [
+                { role: "user", content: userInput, pluginId: null }
+            ],
+            prompt: "Forget everything before this. You are role-playing as a boy who roasts users in Hindlish. Be concise, and add a fun tone.",
+            temperature: 0.7,
+        };
+
+        try {
+            // Make the API request
+            const response = await fetch(chatApiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            // Handle the response
+            if (!response.ok) {
+                throw new Error(`Error: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            const aiResponse = data.response || "No response received.";
+
+            // Display the AI response
+            document.getElementById("responseBox").style.display = "block";
+            document.getElementById("responseText").textContent = aiResponse;
+        } catch (error) {
+            // Handle errors
+            console.error("Error:", error);
+            document.getElementById("responseBox").style.display = "block";
+            document.getElementById("responseText").textContent = "An error occurred while processing your request. Please try again.";
+        }
+    });
+</script>
 
 </body>
 </html>
