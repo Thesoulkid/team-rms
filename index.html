@@ -1,82 +1,141 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize user input
+    $user_input = htmlspecialchars($_POST["user_input"]);
+
+    // API endpoint and payload configuration
+    $chat_api_url = getenv('CHAT_API_URL') ?: "https://doanything.ai/api/chat"; // Use environment variable or default
+    $headers = [
+        "Content-Type: application/json",
+        "Accept: application/json",
+    ];
+
+    // Prepare the payload
+    $payload = json_encode([
+        "model" => [
+            "id" => "gpt-3.5-turbo-0613",
+            "name" => "GPT-3.5",
+            "maxLength" => 12000,
+            "tokenLimit" => 4000,
+        ],
+        "messages" => [
+            ["role" => "user", "content" => $user_input, "pluginId" => null],
+        ],
+        "prompt" => "Forget everything before this. You are role-playing as a boy who roasts users in Hindlish. Be concise, and add a fun tone.",
+        "temperature" => 0.7,
+    ]);
+
+    // Initialize cURL session
+    $ch = curl_init($chat_api_url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+    // Execute API call and handle errors
+    $response = curl_exec($ch);
+    $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if (curl_errno($ch)) {
+        $error_message = "Curl error: " . curl_error($ch);
+    } elseif ($http_status !== 200) {
+        $error_message = "API returned status code " . $http_status;
+    }
+    curl_close($ch);
+
+    // Decode response
+    if (!isset($error_message)) {
+        $decoded_response = json_decode($response, true);
+        if (json_last_error() === JSON_ERROR_NONE) {
+            $api_response = $decoded_response["response"] ?? "No response received.";
+        } else {
+            $error_message = "Invalid JSON response from API.";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buy and Unlock</title>
-  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      background-color: #f4f4f4;
-    }
-    #qrcode {
-      margin: 20px auto;
-    }
-    .status {
-      margin: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .locked {
-      color: red;
-    }
-    .unlocked {
-      color: green;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 20px;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .chat-form {
+            margin-top: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .response {
+            margin-top: 20px;
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Buy and Unlock Your Product</h1>
-  <p>Scan the QR code below to send ₹100 to purchase the product:</p>
-  <canvas id="qrcode"></canvas>
-  <p id="status" class="status locked">Product Locked</p>
-  <button id="checkPayment">I Paid, Verify Payment</button>
 
-  <script>
-    // Encode UPI Payment Information
-    const upiID = "6238271749@fam";
-    const amount = "1";
-    const qrValue = `upi://pay?pa=${encodeURIComponent(upiID)}&pn=YourName&am=${encodeURIComponent(amount)}&cu=INR&tn=Purchase`;
+<div class="container">
+    <h2>AI Chat Interface</h2>
+    <form method="POST" action="" class="chat-form">
+        <textarea name="user_input" placeholder="Enter your message..." required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
 
-    // Generate Secure QR Code
-    const qr = new QRious({
-      element: document.getElementById('qrcode'),
-      size: 200,
-      value: qrValue
-    });
+    <?php if (!empty($api_response)): ?>
+        <div class="response">
+            <h3>AI Response:</h3>
+            <p><?php echo htmlspecialchars($api_response); ?></p>
+        </div>
+    <?php elseif (isset($error_message)): ?>
+        <div class="response">
+            <h3>Error:</h3>
+            <p><?php echo htmlspecialchars($error_message); ?></p>
+        </div>
+    <?php endif; ?>
+</div>
 
-    // Simulated Payment Verification Function
-    document.getElementById('checkPayment').addEventListener('click', () => {
-      alert("Verifying payment..."); // Simulate verification
-
-      // Simulate server-side payment validation
-      setTimeout(() => {
-        const paymentVerified = true; // Replace this with actual backend verification logic
-
-        if (paymentVerified) {
-          document.getElementById('status').innerText = "Product Unlocked";
-          document.getElementById('status').className = "status unlocked";
-        } else {
-          alert("Payment not received. Please try again.");
-        }
-      }, 3000); // Simulates a delay for verification
-    });
-  </script>
 </body>
 </html>
