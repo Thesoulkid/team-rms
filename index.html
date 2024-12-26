@@ -22,6 +22,7 @@
             color: #ff0000;
             text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 30px #ff4500;
             animation: flicker 1.5s infinite alternate;
+            text-align: center;
         }
 
         @keyframes flicker {
@@ -42,6 +43,7 @@
             overflow: hidden;
             width: 0;
             animation: typing 4s steps(30, end), blink 0.6s step-end infinite;
+            text-align: center;
         }
 
         @keyframes typing {
@@ -56,19 +58,49 @@
         /* Center the GIF */
         .gif-container {
             margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Smaller font on mobile */
+            }
+
+            .typing {
+                font-size: 1.5rem; /* Smaller typing effect text on mobile */
+            }
+
+            .gif-container img {
+                width: 80%; /* Adjust GIF size on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem; /* Even smaller font on small screens */
+            }
+
+            .typing {
+                font-size: 1.2rem; /* Smaller typing text */
+            }
+
+            .gif-container img {
+                width: 100%; /* Ensure GIF takes full width on small screens */
+            }
         }
     </style>
 </head>
 <body>
     <!-- Flickering Neon Text -->
-    <h1> Website ഉടനെ ready ആവും </h1>
+    <h1>Welcome to the Dark Side</h1>
 
     <!-- GIF -->
     <div class="gif-container">
-        <img src="https://tenor.com/bDbxw.gif" alt="Horror GIF" width="500">
+        <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Horror GIF" width="500">
     </div>
 
     <!-- Typing Effect -->
-    <div class="typing>ശുഭപ്രധീക്ഷ 100% വിജയം 🗣</div>
+    <div class="typing">Dare to enter?</div>
 </body>
 </html>
