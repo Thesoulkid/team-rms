@@ -6,9 +6,77 @@
     <title>Horror GIF</title>
 </head>
 <body style="text-align: center; background-color: black; color: white;">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flickering Neon Text</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            margin: 0;
+            color: white;
+        }
 
-    <h1> എല്ലാം പെട്ടന്ന് ശെരിയാവും </h1>
-    <p>ശുഭപ്രധീക്ഷ 100% വിജയം 🗣:</p>
+        h1 {
+            font-size: 4rem;
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+                text-shadow: 0 0 10px #0f0, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+        }
+    </style>
+</head>
+<body>
+      <h1> എല്ലാം പെട്ടന്ന് ശെരിയാവും </h1>
+      <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .typing {
+            font-size: 2rem;
+            border-right: 2px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(30, end), blink 0.6s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 15ch; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <div class="typing">ശുഭപ്രധീക്ഷ 100% വിജയം 🗣:</div>
+</body>
+</html>
 
     <!-- Replace the URL with your chosen GIF -->
     <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Horror GIF" width="500">
