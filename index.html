@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horror GIF</title>
-</head>
-<body style="text-align: center; background-color: black; color: white;">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flickering Neon Text</title>
+    <title>Horror GIF with Text Effects</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black;
             margin: 0;
+            background-color: black;
             color: white;
         }
 
+        /* Flickering Neon Effect */
         h1 {
             font-size: 4rem;
-            color: #0f0;
-            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 30px #ff4500;
             animation: flicker 1.5s infinite alternate;
         }
 
@@ -35,25 +30,11 @@
             }
             50% {
                 opacity: 0.8;
-                text-shadow: 0 0 10px #0f0, 0 0 20px #00ff00, 0 0 30px #00ff00;
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 30px #ff4500;
             }
         }
-    </style>
-</head>
-<body>
-      <h1> എല്ലാം പെട്ടന്ന് ശെരിയാവും </h1>
-      <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
-            color: white;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
 
+        /* Typing Effect */
         .typing {
             font-size: 2rem;
             border-right: 2px solid white;
@@ -65,152 +46,29 @@
 
         @keyframes typing {
             from { width: 0; }
-            to { width: 15ch; }
+            to { width: 20ch; }
         }
 
         @keyframes blink {
             50% { border-color: transparent; }
         }
-    </style>
-</head>
-<body>
-    <div class="typing">ശുഭപ്രധീക്ഷ 100% വിജയം 🗣:</div>
-</body>
-</html>
 
-    <!-- Replace the URL with your chosen GIF -->
-    <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Horror GIF" width="500">
-
-</body>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat Interface</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 50%;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
-            border-radius: 8px;
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-        .chat-form {
-            margin-top: 20px;
-        }
-        textarea {
-            width: 100%;
-            height: 150px;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            display: block;
-            width: 100%;
-            margin-top: 10px;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-        .response {
-            margin-top: 20px;
-            background-color: #eaeaea;
-            padding: 10px;
-            border-radius: 5px;
+        /* Center the GIF */
+        .gif-container {
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
+    <!-- Flickering Neon Text -->
+    <h1> Website ഉടനെ ready ആവും </h1>
 
-<div class="container">
-    <h2>AI Chat Interface</h2>
-    <form class="chat-form" id="chatForm">
-        <textarea id="userInput" placeholder="Enter your message..." required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-    </form>
-
-    <div class="response" id="responseBox" style="display: none;">
-        <h3>AI Response:</h3>
-        <p id="responseText"></p>
+    <!-- GIF -->
+    <div class="gif-container">
+        <img src="https://tenor.com/bDbxw.gif" alt="Horror GIF" width="500">
     </div>
-</div>
 
-<script>
-    // API Endpoint
-    const chatApiUrl = "https://doanything.ai/api/chat";
-
-    // Handle form submission
-    document.getElementById("chatForm").addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        // Get user input
-        const userInput = document.getElementById("userInput").value;
-
-        // Prepare the payload
-        const payload = {
-            model: {
-                id: "gpt-3.5-turbo-0613",
-                name: "GPT-3.5",
-                maxLength: 12000,
-                tokenLimit: 4000,
-            },
-            messages: [
-                { role: "user", content: userInput, pluginId: null }
-            ],
-            prompt: "Forget everything before this. You are role-playing as a boy who roasts users in Hindlish. Be concise, and add a fun tone.",
-            temperature: 0.7,
-        };
-
-        try {
-            // Make the API request
-            const response = await fetch(chatApiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payload),
-            });
-
-            // Handle the response
-            if (!response.ok) {
-                throw new Error(`Error: ${response.statusText}`);
-            }
-
-            const data = await response.json();
-            const aiResponse = data.response || "No response received.";
-
-            // Display the AI response
-            document.getElementById("responseBox").style.display = "block";
-            document.getElementById("responseText").textContent = aiResponse;
-        } catch (error) {
-            // Handle errors
-            console.error("Error:", error);
-            document.getElementById("responseBox").style.display = "block";
-            document.getElementById("responseText").textContent = "An error occurred while processing your request. Please try again.";
-        }
-    });
-</script>
-
+    <!-- Typing Effect -->
+    <div class="typing>ശുഭപ്രധീക്ഷ 100% വിജയം 🗣</div>
 </body>
 </html>
