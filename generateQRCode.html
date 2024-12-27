@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scan to Donate</title>
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #3ECF6E;
+    }
+    #qrcode {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Scan to Donate</h1>
+  <div id="qrcode"></div>
+
+  <script>
+    // Get the UPI URL from the URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const upiUrl = params.get('upiUrl');
+
+    // Validate the UPI URL
+    if (upiUrl) {
+      // Generate the QR code using the UPI URL
+      new QRCode(document.getElementById("qrcode"), {
+        text: upiUrl,
+        width: 256,
+        height: 256,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    } else {
+      alert('No valid UPI URL found.');
+    }
+  </script>
+</body>
+</html>
