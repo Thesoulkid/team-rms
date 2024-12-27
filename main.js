@@ -7,7 +7,7 @@ function scrollToDonate() {
   });
 }
 
-// Optional: Form submit confirmation
+// Optional: Form submit confirmation for donation
 document.querySelector('.donate-form').addEventListener('submit', function(event) {
   event.preventDefault();
   const amount = document.getElementById('amount').value;
@@ -17,4 +17,3 @@ document.querySelector('.donate-form').addEventListener('submit', function(event
     alert('Please enter a valid donation amount.');
   }
 });
-
