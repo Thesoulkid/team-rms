@@ -25,6 +25,28 @@ body {
     margin-bottom: 40px;
 }
 
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .circle-img {
+        width: 60px; /* Smaller width for mobile */
+        height: 60px; /* Smaller height for mobile */
+        border: 1.5px solid #ff0000; /* Thinner border */
+        margin-bottom: 8px; /* Less space below the image */
+    }
+
+    .role, .name {
+        font-size: 0.9rem; /* Reduce text size */
+    }
+
+    .leaders-row, .members-row {
+        flex-direction: column; /* Stack images vertically for mobile */
+    }
+
+    .member-card {
+        margin: 10px 0; /* Reduce margins between cards */
+    }
+}
+
 /* Member Card Styles */
 .leaders-row, .members-row {
     display: flex;
