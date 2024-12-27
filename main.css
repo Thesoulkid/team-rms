@@ -1,90 +1,77 @@
 /* General Styles */
 body {
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
     background: #000;
-    color: #ff0000;
-    font-family: 'Arial', sans-serif;
-    text-align: center;
+    color: #fff;
 }
 
 .container {
+    text-align: center;
     padding: 20px;
 }
 
-.title {
-    font-size: 3.5rem;
-    margin: 20px 0;
-    text-shadow: 0 0 5px red, 0 0 10px red;
-    animation: glitch 1.5s infinite;
+/* Header */
+header h1 {
+    font-size: 2.5rem;
+    color: #ff0000;
+    margin: 10px 0;
 }
 
-.quote {
+header .quote {
     font-size: 1.2rem;
+    color: #ff6666;
     font-style: italic;
-    margin-bottom: 40px;
 }
 
-/* Mobile View Adjustments */
-@media (max-width: 768px) {
-    .circle-img {
-        width: 60px; /* Smaller width for mobile */
-        height: 60px; /* Smaller height for mobile */
-        border: 1.5px solid #ff0000; /* Thinner border */
-        margin-bottom: 8px; /* Less space below the image */
-    }
-
-    .role, .name {
-        font-size: 0.9rem; /* Reduce text size */
-    }
-
-    .leaders-row, .members-row {
-        flex-direction: column; /* Stack images vertically for mobile */
-    }
-
-    .member-card {
-        margin: 10px 0; /* Reduce margins between cards */
-    }
-}
-
-/* Member Card Styles */
-.leaders-row, .members-row {
+/* Leaders Section */
+.leaders-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
-.member-card {
-    margin: 0 15px;
+.leader-card {
+    margin: 0 20px;
     text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
 }
 
 .circle-img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    border: 3px solid #ff0000;
+    border: 2px solid #ff0000;
     margin-bottom: 10px;
 }
 
 .role {
     font-size: 1.1rem;
-    font-weight: bold;
-    color: #ff5555;
+    color: #ffcccc;
+    margin: 5px 0;
 }
 
 .name {
     font-size: 1rem;
-    color: #ffaaaa;
+    color: #ffffff;
 }
 
-/* Animation Styles */
-.slide {
-    animation: slideIn 2s ease-in-out;
+/* Members Section */
+.members-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    overflow: hidden; /* Prevent overflow */
 }
 
+.member-card {
+    margin: 0 15px;
+    text-align: center;
+    animation: slideIn 2s ease-in-out; /* Slide animation */
+}
+
+/* Slide Animation for Members */
 @keyframes slideIn {
     0% {
         opacity: 0;
@@ -96,14 +83,9 @@ body {
     }
 }
 
-@keyframes glitch {
-    0%, 20% {
-        text-shadow: 2px 2px red, -2px -2px black;
-    }
-    50% {
-        text-shadow: -2px 2px red, 2px -2px black;
-    }
-    100% {
-        text-shadow: 2px -2px red, -2px 2px black;
-    }
+/* Footer */
+footer {
+    margin-top: 20px;
+    color: #777;
+    font-size: 0.9rem;
 }
