@@ -1,119 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <audio autoplay loop>
-        <source src="https://s31.aconvert.com/convert/p3r68-cdx67/43a7x-pjy3b.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-<head>
-    <!-- Open Graph Meta Tags -->
-<meta property="og:title" content="TEAM-RMS OFFICIAL " />
-<meta property="og:description" content="By SoulZinMaker" />
-<meta property="og:image" content="https://i.imghippo.com/files/EqC6351YUU.jpeg" />
-<meta property="og:url" content="https://thesoulkid.github.io/TEAM-RMS/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="TEAM RMS Official" />
-<meta name="twitter:card" content="summary_large_image" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE ROYAL MARCOS</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: black;
-            color: white;
-        }
-
-        /* Flickering Neon Effect */
-        h1 {
-            font-size: 4rem;
-            color: #FFFFFF;
-            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 30px #ff4500;
-            animation: flicker 1.5s infinite alternate;
-            text-align: center;
-        }
-
-        @keyframes flicker {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.8;
-                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 30px #ff4500;
-            }
-        }
-
-        /* Typing Effect */
-        .typing {
-            font-size: 2rem;
-            border-right: 2px solid white;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            animation: typing 5s steps(30, end), blink 0.6s step-end infinite;
-            text-align: center;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 20ch; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
-        /* Center the GIF */
-        .gif-container {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem; /* Smaller font on mobile */
-            }
-
-            .typing {
-                font-size: 1.5rem; /* Smaller typing effect text on mobile */
-            }
-
-            .gif-container img {
-                width: 80%; /* Adjust GIF size on mobile */
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem; /* Even smaller font on small screens */
-            }
-
-            .typing {
-                font-size: 1.2rem; /* Smaller typing text */
-            }
-
-            .gif-container img {
-                width: 100%; /* Ensure GIF takes full width on small screens */
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Touching Love - Charity</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Flickering Neon Text -->
-    <h1>ചില സാങ്കേതിക തകരാറുകൾ കാരണം Website മൂഞ്ചി 🗣</h1>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Heart Touching Love</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#donate">Donate</a></li>
+    </ul>
+  </nav>
 
-    <!-- GIF -->
-    <div class="gif-container">
-        <img src="https://media4.giphy.com/media/PnmsSAdER9awBpRWww/giphy.gif" alt="Horror GIF" width="500">
+  <!-- Home Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h1>Make a Difference, Touch a Heart</h1>
+      <p>Join us in spreading love and compassion across the world.</p>
+      <button class="cta-btn" onclick="scrollToDonate()">Donate Now</button>
     </div>
+  </section>
 
-    <!-- Typing Effect -->
-    <h1> എല്ലാം ശെരിയാവും ശുഭപ്രധീക്ഷ 100% വിജയം 😂👍 </h1>
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>We are dedicated to supporting communities in need. Your donations help bring hope and love to those who need it most.</p>
+  </section>
+
+  <!-- Donate Section -->
+  <section id="donate" class="donate-section">
+    <h2>Donate</h2>
+    <form class="donate-form">
+      <label for="amount">Donation Amount:</label>
+      <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
+      <button type="submit" class="donate-btn">Donate Now</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Heart Touching Love | All Rights Reserved</p>
+  </footer>
 </body>
 </html>
