@@ -1,90 +1,87 @@
-/* General Reset */
-body, html {
+/* General Styles */
+body {
     margin: 0;
     padding: 0;
-    font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(to bottom, #000000, #550000);
+    background: #000;
     color: #ff0000;
-    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
 }
 
 .container {
-    text-align: center;
     padding: 20px;
 }
 
-/* Header */
-header {
-    margin-top: 50px;
-    animation: fadeIn 2s ease-in-out;
-}
-
 .title {
-    font-size: 4rem;
-    text-shadow: 2px 2px 5px #000;
+    font-size: 3.5rem;
+    margin: 20px 0;
+    text-shadow: 0 0 5px red, 0 0 10px red;
     animation: glitch 1.5s infinite;
 }
 
 .quote {
-    font-size: 1.5rem;
-    font-style: italic;
-    color: #bb0000;
-    margin-top: 10px;
-}
-
-/* Team Section */
-.team-section {
-    margin: 50px auto;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 5px #550000;
-}
-
-.leader, .co-leader-name, .leader-name {
-    color: #ff1111;
-    font-size: 1.3rem;
-}
-
-.members ul {
-    list-style: none;
-    padding: 0;
-}
-
-.members li {
-    margin: 10px 0;
     font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+/* Member Card Styles */
+.leaders-row, .members-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.member-card {
+    margin: 0 15px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.circle-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ff0000;
+    margin-bottom: 10px;
+}
+
+.role {
+    font-size: 1.1rem;
+    font-weight: bold;
     color: #ff5555;
 }
 
-/* Footer */
-footer {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    color: #550000;
+.name {
+    font-size: 1rem;
+    color: #ffaaaa;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
+/* Animation Styles */
+.slide {
+    animation: slideIn 2s ease-in-out;
+}
+
+@keyframes slideIn {
+    0% {
         opacity: 0;
+        transform: translateX(-100%);
     }
-    to {
+    100% {
         opacity: 1;
+        transform: translateX(0);
     }
 }
 
 @keyframes glitch {
     0%, 20% {
-        text-shadow: 2px 2px #ff1111, -2px -2px #550000;
+        text-shadow: 2px 2px red, -2px -2px black;
     }
     50% {
-        text-shadow: -2px 2px #550000, 2px -2px #ff0000;
+        text-shadow: -2px 2px red, 2px -2px black;
     }
     100% {
-        text-shadow: 2px -2px #ff0000, -2px 2px #550000;
+        text-shadow: 2px -2px red, -2px 2px black;
     }
 }
