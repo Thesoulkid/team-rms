@@ -40,16 +40,15 @@
   </div>
 </section>
 
-  <!-- Donate Section -->
-  <section id="donate" class="donate-section">
-    <h2>Make a Difference</h2>
-    <p>Your generosity helps us reach more people. Every donation matters.</p>
-    <form class="donate-form">
-      <label for="amount">Donation Amount:</label>
-      <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
-      <button type="submit" class="donate-btn">Donate Now</button>
-    </form>
-  </section>
+  <!-- Donation Section -->
+    <section class="donate-section">
+      <h2>Enter Donation Amount</h2>
+      <form id="donateForm" class="donate-form">
+        <label for="amount">Amount (INR):</label>
+        <input type="number" id="amount" name="amount" placeholder="Enter Amount" required min="1">
+        <button type="submit" class="donate-btn">Generate QR Code</button>
+      </form>
+    </section>
 
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
