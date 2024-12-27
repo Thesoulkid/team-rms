@@ -15,7 +15,13 @@ document.getElementById('donateForm').addEventListener('submit', function(event)
 
     // Open a new tab to display the QR code
     const qrTab = window.open('', '_blank');
-    
+
+    // Ensure that the new tab opens correctly and isn't blocked
+    if (!qrTab) {
+      alert("Pop-up blocked. Please allow pop-ups for this site.");
+      return;
+    }
+
     // Add content to the new tab
     qrTab.document.write(`
       <!DOCTYPE html>
@@ -24,6 +30,7 @@ document.getElementById('donateForm').addEventListener('submit', function(event)
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Scan to Donate</title>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
         <style>
           body {
             font-family: Arial, sans-serif;
@@ -43,7 +50,6 @@ document.getElementById('donateForm').addEventListener('submit', function(event)
       <body>
         <h1>Scan to Donate</h1>
         <div id="qrcode"></div>
-        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
         <script>
           // Generate the QR code with the UPI URL
           new QRCode(document.getElementById("qrcode"), {
@@ -59,9 +65,12 @@ document.getElementById('donateForm').addEventListener('submit', function(event)
       </html>
     `);
 
-    // Ensure that the script is properly executed in the new tab.
+    // Close the document (to ensure that it loads the scripts properly)
     qrTab.document.close();
+
   } else {
     alert('Please enter a valid donation amount.');
   }
+});
+
 });
