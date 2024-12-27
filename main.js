@@ -45,20 +45,22 @@ document.getElementById('donateForm').addEventListener('submit', function(event)
         <h1>Scan to Donate</h1>
         <div id="qrcode"></div>
         <script>
-          // Generate the QR code with the UPI URL
-          new QRCode(document.getElementById("qrcode"), {
-            text: "${upiUrl}",
-            width: 256,
-            height: 256,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-          });
+          // Ensure the script runs after the page is fully loaded in the new tab
+          window.onload = function() {
+            new QRCode(document.getElementById("qrcode"), {
+              text: "${upiUrl}",
+              width: 256,
+              height: 256,
+              colorDark: "#000000",
+              colorLight: "#ffffff",
+              correctLevel: QRCode.CorrectLevel.H
+            });
+          };
         </script>
       </body>
       </html>
     `);
-    
+
   } else {
     alert('Please enter a valid donation amount.');
   }
