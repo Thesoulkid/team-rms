@@ -68,14 +68,14 @@ body {
 }
 
 .quote {
-    font-family: 'Stargod', sans-serif;
-    font-size: 0.2rem;
+    font-family: 'Black Blood', sans-serif;
+    font-size: 0.8rem;
     color: #ff0000;
 }
 
 @font-face {
-    font-family: 'Stargod';
-    src: url('./fonts/Stargod.ttf') format('truetype'); /* Path to your font file */
+    font-family: 'Black Blood.ttf';
+    src: url('./fonts/Black Blood.ttf') format('truetype'); /* Path to your font file */
 }
 
 /* Animation for Member Sliding */
