@@ -40,8 +40,16 @@ body {
 }
 
 .circle-img {
-    width: 20px;
-    height: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #ff0000;
+    margin-bottom: 10px;
+}
+
+.rms-img {
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     border: 3px solid #ff0000;
     margin-bottom: 10px;
