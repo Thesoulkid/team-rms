@@ -1,28 +1,28 @@
 /* General Styles */
 body {
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
     background: #000;
-    color: #ff0000;
-    font-family: 'Arial', sans-serif;
-    text-align: center;
+    color: #fff;
 }
 
 .container {
+    text-align: center;
     padding: 20px;
 }
 
-.title {
-    font-size: 3.5rem;
-    margin: 20px 0;
-    text-shadow: 0 0 5px red, 0 0 10px red;
-    animation: glitch 1.5s infinite;
+/* Header */
+header h1 {
+    font-size: 2.5rem;
+    color: #ff0000;
+    margin: 10px 0;
 }
 
-.quote {
+header .quote {
     font-size: 1.2rem;
+    color: #ff6666;
     font-style: italic;
-    margin-bottom: 40px;
+}
 
 /* Leaders Section */
 .leaders-row {
@@ -38,18 +38,10 @@ body {
 }
 
 .circle-img {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 2px solid #ff0000;
-    margin-bottom: 10px;
-}
-
-.rms-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid #ff0000;
     margin-bottom: 10px;
 }
 
@@ -60,7 +52,6 @@ body {
 }
 
 .name {
-    font-family: 'Arial', cursive;
     font-size: 1rem;
     color: #ffffff;
 }
@@ -80,6 +71,7 @@ body {
     animation: slideIn 2s ease-in-out; /* Slide animation */
 }
 
+/* Slide Animation for Members */
 @keyframes slideIn {
     0% {
         opacity: 0;
@@ -91,22 +83,9 @@ body {
     }
 }
 
-@keyframes glitch {
-    0%, 20% {
-        text-shadow: 2px 2px red, -2px -2px black;
-    }
-    50% {
-        text-shadow: -2px 2px red, 2px -2px black;
-    }
-    100% {
-        text-shadow: 2px -2px red, -2px 2px black;
-    }
-}
-
 /* Footer */
 footer {
     margin-top: 20px;
     color: #777;
     font-size: 0.9rem;
 }
-
