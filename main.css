@@ -1,37 +1,36 @@
-/* bg gif */
-body {
-    background: url('https://media3.giphy.com/media/26h0qLFdOBklnBsyI/giphy.gif') no-repeat center center fixed;
-    background-size: cover;
-}
-
-/* General Styles */
+/* Background GIF */
 body {
     margin: 0;
     padding: 0;
-    background: #000;
-    color: #ff0000;
-    font-family: 'Arial', sans-serif;
+    background: url('https://media3.giphy.com/media/26h0qLFdOBklnBsyI/giphy.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: #ff0000; /* Text color */
+    font-family: 'Arial', sans-serif; /* Default font */
     text-align: center;
 }
 
+/* General Container */
 .container {
     padding: 20px;
 }
 
+/* Title Styles */
 .title {
     font-size: 3.5rem;
     margin: 20px 0;
     text-shadow: 0 0 5px red, 0 0 10px red;
-    animation: glitch 1.5s infinite;
+    animation: glitch 1.5s infinite; /* Glitch effect */
 }
 
+/* Quote Style */
 .quote {
     font-size: 1.2rem;
     font-style: italic;
     margin-bottom: 40px;
+    color: #fff; /* White for better readability */
 }
 
-/* Member Card Styles */
+/* Member Cards */
 .leaders-row, .members-row {
     display: flex;
     justify-content: center;
@@ -45,6 +44,7 @@ body {
     animation: fadeIn 1.5s ease-in-out;
 }
 
+/* Circle Images */
 .circle-img {
     width: 60px;
     height: 60px;
@@ -61,18 +61,19 @@ body {
     margin-bottom: 10px;
 }
 
+/* Text Roles and Names */
 .role {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #ff0000;
+    color: #ff0000; /* Role text color */
 }
 
 .name {
     font-size: 1rem;
-    color: #FFFFFF;
+    color: #FFFFFF; /* Member names */
 }
 
-/* Animation Styles */
+/* Animation for Member Sliding */
 .slide {
     animation: slideIn 2s ease-in-out;
 }
@@ -88,6 +89,7 @@ body {
     }
 }
 
+/* Glitch Animation for Title */
 @keyframes glitch {
     0%, 20% {
         text-shadow: 2px 2px red, -2px -2px black;
