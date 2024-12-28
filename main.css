@@ -68,14 +68,14 @@ body {
 }
 
 .quote {
-    font-family: 'BlackBlood', sans-serif;
+    font-family: 'BloodyHell', sans-serif;
     font-size: 1.5rem;
     color: #ff0000;
 }
 
 @font-face {
-    font-family: 'BlackBlood';
-    src: url('./fonts/BlackBlood.ttf') format('truetype'); /* Path to your font file */
+    font-family: 'BloodyHell';
+    src: url('./fonts/BloodyHell.ttf') format('truetype'); /* Path to your font file */
 }
 
 /* Animation for Member Sliding */
