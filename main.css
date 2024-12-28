@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('https://jmp.sh/s/eKrOFhrqDwgk7c8OZjl0') no-repeat center center fixed;
+    background: url('https://media3.giphy.com/media/26h0qLFdOBklnBsyI/giphy.gif') no-repeat center center fixed;
     background-size: cover;
     color: #ff0000; /* Text color */
     font-family: 'Arial', sans-serif; /* Default font */
@@ -62,15 +62,22 @@ body {
     color: #ff0000; /* Role text color */
 }
 
-.name {
-    font-size: 1rem;
-    color: #FFFFFF; /* Member names */
-}
 
 .quote {
     font-family: 'BlackBlood', sans-serif;
     font-size: 1.5rem;
     color: #ff0000;
+}
+
+@font-face {
+    font-family: 'BlackBlood';
+    src: url('./fonts/BlackBlood.ttf') format('truetype'); /* Path to your font file */
+}
+
+.name {
+    font-family: 'BlackBlood', sans-serif;
+    font-size: 2rem;
+    color: #FFFFFF; /* Member names */
 }
 
 @font-face {
