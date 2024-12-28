@@ -22,13 +22,7 @@ body {
     animation: glitch 1.5s infinite; /* Glitch effect */
 }
 
-/* Quote Style */
-.quote {
-    font-size: 1.2rem;
-    font-style: italic;
-    margin-bottom: 40px;
-    color: #fff; /* White for better readability */
-}
+
 
 /* Member Cards */
 .leaders-row, .members-row {
