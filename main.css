@@ -1,36 +1,28 @@
 /* General Styles */
-@font-face {
-    font-family: 'Fuggles';
-    src: url('fonts/Fuggles.ttf') format('truetype'); /* Make sure the font path is correct */
-}
-
-/* General Styles */
 body {
     margin: 0;
-    font-family: 'Fuggles', cursive;
+    padding: 0;
     background: #000;
-    color: #fff;
+    color: #ff0000;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
 }
 
 .container {
-    text-align: center;
     padding: 20px;
 }
 
-/* Header */
-header h1 {
-    font-family: '', cursive;
-    font-size: 2.5rem;
-    color: #ff0000;
-    margin: 10px 0;
+.title {
+    font-size: 3.5rem;
+    margin: 20px 0;
+    text-shadow: 0 0 5px red, 0 0 10px red;
+    animation: glitch 1.5s infinite;
 }
 
-header .quote {
-    font-family: 'Fuggles', cursive;
+.quote {
     font-size: 1.2rem;
-    color: #ff6666;
     font-style: italic;
-}
+    margin-bottom: 40px;
 
 /* Leaders Section */
 .leaders-row {
