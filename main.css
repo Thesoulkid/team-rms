@@ -7,7 +7,6 @@ body {
     color: #ff0000; /* Text color */
     font-family: 'Arial', sans-serif; /* Default font */
     text-align: center;
-    transition: background-color 1s ease; /* Smooth background color change */
 }
 
 /* General Container */
