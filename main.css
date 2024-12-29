@@ -165,3 +165,36 @@ body {
     text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
     transition: text-shadow 0.3s ease-in-out;
 }
+
+/* Play Button Styles */
+.audio-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.audio-btn:hover {
+    background-color: darkred;
+}
+
+/* Pulse Effect for Play Button */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+}
