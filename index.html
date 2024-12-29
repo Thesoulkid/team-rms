@@ -24,9 +24,11 @@
         <div class="login-box">
             <h1>Login</h1>
             <p>Enter your username and password:</p>
-            <input type="text" id="username" placeholder="Username" />
-            <input type="password" id="password" placeholder="Password" />
-            <button onclick="validateLogin()">Login</button>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" />
+                <input type="password" id="password" placeholder="Password" />
+                <button type="submit">Login</button>
+            </form>
             <p id="login-error" class="error"></p>
         </div>
     </div>
@@ -35,7 +37,6 @@
     <div id="main-website" class="screen">
         <div class="container">
             <header>
-                <!-- Main website content -->
                 <section class="leaders-row">
                     <div class="member-card">
                         <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Leader" class="rms-img">
@@ -53,27 +54,6 @@
                         <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Leader" class="circle-img">
                         <p class="role">Leader</p>
                         <p class="name">SoulZinMaker</p>
-                    </div>
-
-                    <div class="member-card">
-                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Co-Leader" class="circle-img">
-                        <p class="role">Co-Leader</p>
-                        <p class="name">LarvinZinMaker</p>
-                    </div>
-                </section>
-
-                <section class="members-row">
-                    <div class="member-card slide">
-                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
-                        <p class="name">LusO</p>
-                    </div>
-                    <div class="member-card slide">
-                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
-                        <p class="name">WaX</p>
-                    </div>
-                    <div class="member-card slide">
-                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
-                        <p class="name">AfnaN</p>
                     </div>
                 </section>
 
