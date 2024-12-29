@@ -67,17 +67,28 @@ body {
     }
 }
 
-/* Siri Effect Circle (expanding when audio plays) */
-.siri-effect {
+/* Siri Effect on Circle (Expanding and Contracting when audio is playing) */
+.circle {
+    position: relative;
+    overflow: hidden; /* Keep everything inside the circle */
+}
+
+.circle:before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(255, 0, 0, 0.3);
     opacity: 0;
     pointer-events: none;
+    transform: scale(1);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.circle.playing:before {
     animation: siriEffect 1s infinite ease-in-out;
 }
 
