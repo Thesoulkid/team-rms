@@ -7,6 +7,7 @@ body {
     color: #ff0000; /* Text color */
     font-family: 'Arial', sans-serif; /* Default font */
     text-align: center;
+    transition: background-color 1s ease; /* Smooth background color change */
 }
 
 /* General Container */
@@ -40,15 +41,6 @@ body {
 .circle-img {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
-    border: 3px solid #ff0000;
-    margin-bottom: 10px;
-}
-
-/* Circle Images */
-.rms-img {
-    width: 80px;
-    height: 80px;
     border-radius: 50%;
     border: 3px solid #ff0000;
     margin-bottom: 10px;
@@ -143,4 +135,25 @@ body {
     100% {
         text-shadow: 2px -2px red, -2px 2px black;
     }
+}
+
+/* Fade In Animation for the whole page */
+.fadeIn {
+    opacity: 0;
+    animation: fadeInEffect 2s forwards;
+}
+
+@keyframes fadeInEffect {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Glow Effect on Title */
+.title:hover {
+    text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+    transition: text-shadow 0.3s ease-in-out;
 }
