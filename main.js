@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Audio Player
     const backgroundAudio = document.getElementById("background-audio");
+    const accessGrantedAudio = new Audio("https://www.soundjay.com/button/beep-07.wav");
 
     // Play Background Audio
     function playAudio() {
@@ -20,10 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Login Screen
     const loginScreen = document.getElementById("login-screen");
-    const loginForm = document.getElementById("login-form");
+    const loginForm = document.getElementById("login-form"); // You need to make sure this exists
     const usernameInput = document.getElementById("username");
     const passwordInput = document.getElementById("password");
-    const errorMessage = document.getElementById("error-message");
+    const errorMessage = document.getElementById("login-error");
 
     // Main Website
     const mainWebsite = document.getElementById("main-website");
@@ -45,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
             mainWebsite.classList.add("active");
 
             // Play "Access Granted" Audio
-            const accessGrantedAudio = new Audio("https://example.com/access-granted.mp3");
             accessGrantedAudio.play();
 
             // Play Background Music
