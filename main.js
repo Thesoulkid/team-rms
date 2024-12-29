@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Login Screen
     const loginScreen = document.getElementById("login-screen");
-    const loginForm = document.getElementById("login-form"); // You need to make sure this exists
+    const loginForm = document.getElementById("login-form");
     const usernameInput = document.getElementById("username");
     const passwordInput = document.getElementById("password");
     const errorMessage = document.getElementById("login-error");
@@ -37,11 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Login Form Submission
     loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+        e.preventDefault();  // Prevent form submission
         const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
 
-        if (username === "TEAM RMS" && password === "royalmarcos") {
+        if (username === "1" && password === "1") {
+            // Correct credentials, show the main website
             loginScreen.classList.remove("active");
             mainWebsite.classList.add("active");
 
