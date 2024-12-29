@@ -49,11 +49,8 @@ body {
 .play-icon {
     font-size: 2rem;
     color: white;
+    display: none; /* Hidden initially */
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;  /* Ensure it is visible by default */
 }
 
 /* Playing Animation */
@@ -68,6 +65,55 @@ body {
     100% {
         box-shadow: 0 0 30px red;
     }
+}
+
+/* Siri Circle Animation */
+.siri-circle {
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite ease-in-out;
+    opacity: 0.6;
+    margin: 0 5px;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+}
+
+/* Delay each circle's animation for a staggered effect */
+.siri-circle:nth-child(1) {
+    animation-delay: 0s;
+}
+.siri-circle:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.siri-circle:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Additional circle styles */
+.circle {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #ff0000;
+    margin-bottom: 10px;
 }
 
 .rms-img {
@@ -100,11 +146,6 @@ body {
     font-family: 'BlackBlood', sans-serif;
     font-size: 1rem;
     color: #FFFFFF; /* Member names */
-}
-
-@font-face {
-    font-family: 'BlackBlood';
-    src: url('./fonts/BlackBlood.ttf') format('truetype'); /* Path to your font file */
 }
 
 /* Animation for Member Sliding */
