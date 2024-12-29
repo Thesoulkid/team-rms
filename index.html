@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="TEAM RMS" />
     <meta property="og:description" content="By SoulZinMaker" />
     <meta property="og:image" content="https://i.imghippo.com/files/EqC6351YUU.jpeg" />
@@ -24,85 +23,72 @@
                     <p class="role">We Are</p>
                     <h1 class="title">TEAM RMS</h1>
                     <p class="quote"> You must suffer the consequences of your sin </p>
-                </div>
-            </section>
+                </header>
 
-            <!-- Leader and Co-Leader Row -->
-            <section class="leaders-row">
-                <div class="member-card">
-                    <!-- Circle with Leader's Name -->
-                    <div class="circle" id="leader-circle" style="position: relative;">
-                        <div class="play-icon" id="play-icon" style="display: block;">&#9658;</div> <!-- Play Icon -->
+                <!-- Leader and Co-Leader Row -->
+                <section class="leaders-row">
+                    <div class="member-card">
+                        <!-- Circle with Leader's Name -->
+                        <div class="circle" id="leader-circle">
+                            <!-- Animated Circles for Siri effect -->
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                            <div class="play-icon" id="play-icon">&#9658;</div> <!-- Play Icon -->
+                        </div>
+                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Leader" class="circle-img">
+                        <p class="role">Leader</p>
+                        <p class="name">SoulZinMaker</p>
                     </div>
-                    <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Leader" class="circle-img">
-                    <p class="role">Leader</p>
-                    <p class="name">SoulZinMaker</p>
-                </div>
 
-                <!-- Leader's Voice Audio File -->
-                <audio id="leader-voice" src="audio/leader_voice.mp3"></audio>
+                    <!-- Co-Leader -->
+                    <div class="member-card">
+                        <div class="circle" id="co-leader-circle">
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                        </div>
+                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Co-Leader" class="circle-img">
+                        <p class="role">Co-Leader</p>
+                        <p class="name">LarvinZinMaker</p>
+                    </div>
+                </section>
 
-                <script>
-                    // Play background audio when the page is loaded
-                    window.onload = function() {
-                        var backgroundAudio = new Audio("audio/background_audio.mp3");  // Replace with your audio path
-                        backgroundAudio.loop = true;  // Loop the audio
-                        backgroundAudio.play();
-                        // Pause background audio when the user leaves the page
-                        window.onbeforeunload = function() {
-                            backgroundAudio.pause();
-                        };
-                    }
+                <!-- Members Row -->
+                <section class="members-row">
+                    <div class="member-card">
+                        <div class="circle" id="member-circle-1">
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                        </div>
+                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
+                        <p class="name">LusO</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="circle" id="member-circle-2">
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                        </div>
+                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
+                        <p class="name">WaX</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="circle" id="member-circle-3">
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                            <div class="siri-circle"></div>
+                        </div>
+                        <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
+                        <p class="name">AfnaN</p>
+                    </div>
+                </section>
 
-                    // Play/Pause Leader's voice when the play button is clicked
-                    document.getElementById('leader-circle').addEventListener('click', function() {
-                        var leaderVoice = document.getElementById('leader-voice');
-                        var playIcon = document.getElementById('play-icon');
-
-                        if (leaderVoice.paused) {
-                            leaderVoice.play();
-                            playIcon.innerHTML = '&#10074;&#10074;';  // Change icon to pause
-                        } else {
-                            leaderVoice.pause();
-                            playIcon.innerHTML = '&#9658;';  // Change icon to play
-                        }
-                    });
-                </script>
-            </section>
-
-            <!-- Leader and Co-Leader Row (Continued) -->
-            <div class="member-card">
-                <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Co-Leader" class="circle-img">
-                <p class="role">Co-Leader</p>
-                <p class="name">LarvinZinMaker</p>
+                <footer>
+                    <p>© 2024 TEAM RMS. All rights reserved.</p>
+                </footer>
             </div>
-        </section>
-
-        <!-- Members Row -->
-        <section class="members-row">
-            <div class="member-card slide">
-                <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
-                <p class="name">LusO</p>
-            </div>
-            <div class="member-card slide">
-                <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
-                <p class="name">WaX</p>
-            </div>
-            <div class="member-card slide">
-                <img src="https://i.imghippo.com/files/NSW5276Hg.webp" alt="Member" class="circle-img">
-                <p class="name">AfnaN</p>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2024 TEAM RMS. All rights reserved.</p>
-        </footer>
-    </div>
-</body>
-</html>
-
-        </footer>
-    </div>
-</body>
-</html>
+        </body>
+    </html>
 
