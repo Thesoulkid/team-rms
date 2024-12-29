@@ -7,36 +7,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // On Circle Click
     allCircles.forEach(circle => {
         circle.addEventListener("click", () => {
-            const siriEffect = circle.querySelector('.siri-effect');
             if (leaderVoice.paused) {
                 // Play audio
                 leaderVoice.play();
-                circle.classList.add("playing"); // Add animation
+                circle.classList.add("playing"); // Add animation (Siri effect)
                 playIcon.style.display = "block"; // Show play icon
-
-                // Start pulsing animation for Siri effect
-                siriEffect.style.animationPlayState = "running";
             } else {
                 // Pause audio
                 leaderVoice.pause();
                 leaderVoice.currentTime = 0;
                 circle.classList.remove("playing"); // Remove animation
                 playIcon.style.display = "none"; // Hide play icon
-
-                // Stop pulsing animation
-                siriEffect.style.animationPlayState = "paused";
             }
         });
     });
 
     // Stop Animation When Audio Ends
     leaderVoice.addEventListener("ended", () => {
-        leaderCircle.classList.remove("playing");
-        playIcon.style.display = "none";
-
-        // Stop pulsing animation
-        document.querySelectorAll('.siri-effect').forEach(siriCircle => {
-            siriCircle.style.animationPlayState = "paused";
+        document.querySelectorAll('.circle').forEach(circle => {
+            circle.classList.remove("playing"); // Remove Siri animation on end
         });
+        playIcon.style.display = "none";
     });
 });
