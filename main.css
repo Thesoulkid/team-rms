@@ -54,7 +54,6 @@ body {
     margin-bottom: 10px;
 }
 
-
 /* Play Icon */
 .play-icon {
     font-size: 2rem;
@@ -188,6 +187,8 @@ body {
     border: 2px solid #00ff00;
     border-radius: 10px;
     box-shadow: 0 0 20px green;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 input {
@@ -209,6 +210,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
 }
 
 button:hover {
@@ -218,4 +222,19 @@ button:hover {
 .error {
     color: red;
     margin-top: 10px;
+    font-size: 1rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #333;
 }
