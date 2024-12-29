@@ -3,29 +3,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const leaderVoice = document.getElementById("leader-voice");
     const playIcon = document.getElementById("play-icon");
     const allCircles = document.querySelectorAll(".circle");
+    const backgroundAudio = document.getElementById("background-audio");
 
-    // On Circle Click
+    // Start playing background audio automatically
+    backgroundAudio.play();
+
+    // Start Siri effect on all circles when background audio is playing
     allCircles.forEach(circle => {
         circle.addEventListener("click", () => {
-            if (leaderVoice.paused) {
-                // Play audio
-                leaderVoice.play();
-                circle.classList.add("playing"); // Add animation (Siri effect)
+            if (backgroundAudio.paused) {
+                backgroundAudio.play(); // Play audio
+                circle.classList.add("playing"); // Start Siri effect animation
                 playIcon.style.display = "block"; // Show play icon
             } else {
-                // Pause audio
-                leaderVoice.pause();
-                leaderVoice.currentTime = 0;
-                circle.classList.remove("playing"); // Remove animation
+                backgroundAudio.pause(); // Pause audio
+                circle.classList.remove("playing"); // Remove Siri effect
                 playIcon.style.display = "none"; // Hide play icon
             }
         });
     });
 
-    // Stop Animation When Audio Ends
-    leaderVoice.addEventListener("ended", () => {
-        document.querySelectorAll('.circle').forEach(circle => {
-            circle.classList.remove("playing"); // Remove Siri animation on end
+    // When audio ends, stop animation and reset icon
+    backgroundAudio.addEventListener("ended", () => {
+        allCircles.forEach(circle => {
+            circle.classList.remove("playing");
         });
         playIcon.style.display = "none";
     });
