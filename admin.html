@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
+  <h2>Admin Panel</h2>
+  <div id="messages-list">
+    <h3>Customer Messages:</h3>
+    <!-- Display customer messages here -->
+  </div>
+  <div id="sold-numbers">
+    <h3>Sold Numbers:</h3>
+    <!-- Display history of sold numbers here -->
+  </div>
+
+  <script>
+    // Example: Displaying sample data
+    const messagesList = document.getElementById('messages-list');
+    const soldNumbers = document.getElementById('sold-numbers');
+    
+    // Sample data
+    const customerMessages = ["Message 1 from user", "Message 2 from user"];
+    const historyOfSoldNumbers = ["1234567890", "9876543210"];
+    
+    // Display customer messages
+    customerMessages.forEach((message, index) => {
+      const messageItem = document.createElement('p');
+      messageItem.textContent = Message ${index + 1}: ${message};
+      messagesList.appendChild(messageItem);
+    });
+
+    // Display history of sold numbers
+    historyOfSoldNumbers.forEach((number) => {
+      const numberItem = document.createElement('p');
+      numberItem.textContent = Sold Number: ${number};
+      soldNumbers.appendChild(numberItem);
+    });
+  </script>
+</body>
+</html>
