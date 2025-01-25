@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+  // Define the domains to bypass
+  const bypassedDomains = ["topnumstore.com"];
+
+  // Check the current domain
+  if (bypassedDomains.includes(window.location.hostname)) {
+    // Redirect to your desired website
+    window.location.href = "https://topnumstore.vercel.app/";
+  }
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
