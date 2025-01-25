@@ -16,36 +16,37 @@ const userUsername = 'user';
 const userPassword = 'user123';
 const customerMessages = [];
 
+// Admin and User credentials
+const adminUsername = 'admin';
+const adminPassword = 'adminpass';
+const userUsername = 'user';
+const userPassword = 'user123';
+
 // Login Logic
 loginForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const username = usernameInput.value;
-  const password = passwordInput.value;
+  e.preventDefault();  // Prevent form submission
+  
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
 
-  // Admin Login
   if (username === adminUsername && password === adminPassword) {
-    loginContainer.classList.add('hidden');
-    adminPanel.classList.remove('hidden');
-    displayMessages();
+    // Open Admin page in new tab
+    window.open('admin.html', '_blank');
+    // Clear login fields after successful login
+    usernameInput.value = '';
+    passwordInput.value = '';
   } 
-  // User Login
   else if (username === userUsername && password === userPassword) {
-    loginContainer.classList.add('hidden');
-    userSection.classList.remove('hidden');
+    // Open User page in new tab
+    window.open('user.html', '_blank');
+    // Clear login fields after successful login
+    usernameInput.value = '';
+    passwordInput.value = '';
   } else {
-    alert('Invalid username or password!');
+    // Invalid credentials
+    document.getElementById('login-error').style.display = 'block';
   }
 });
-
-// Display Customer Messages in Admin Panel
-function displayMessages() {
-  messagesList.innerHTML = '';
-  customerMessages.forEach((message, index) => {
-    const messageItem = document.createElement('li');
-    messageItem.textContent = `Message ${index + 1}: ${message}`;
-    messagesList.appendChild(messageItem);
-  });
-}
 
 // Audio Player
 const backgroundAudio = document.getElementById("background-audio");
