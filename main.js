@@ -6,13 +6,6 @@ const sendContactMessageButton = document.getElementById('send-contact-message')
 const contactMessageInput = document.getElementById('contact-message');
 const contactButton = document.getElementById('contact-button');
 
-// Admin Credentials
-const adminUsername = 'admin';
-const adminPassword = 'adminpass';
-const userUsername = 'user';
-const userPassword = 'user123';
-const customerMessages = [];
-
 // Admin and User credentials
 const adminUsername = 'admin';
 const adminPassword = 'adminpass';
@@ -42,8 +35,8 @@ loginForm.addEventListener('submit', (e) => {
   } else {
     // Invalid credentials
     document.getElementById('login-error').style.display = 'block';
-  }
-});
+    });
+}
 
 // Audio Player
 const backgroundAudio = document.getElementById("background-audio");
