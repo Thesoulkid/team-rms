@@ -1,11 +1,13 @@
 const loginForm = document.getElementById('login-form');
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
-const loginContainer = document.getElementById('login-screen');
-const adminPanel = document.getElementById('admin-panel');
+const loginContainer = document.getElementById('login-container');
 const userSection = document.getElementById('user-section');
+const adminPanel = document.getElementById('admin-panel');
 const messagesList = document.getElementById('messages-list');
 const sendContactMessageButton = document.getElementById('send-contact-message');
+const contactMessageInput = document.getElementById('contact-message');
+const contactButton = document.getElementById('contact-button');
 
 // Admin Credentials
 const adminUsername = 'admin';
@@ -17,8 +19,8 @@ const customerMessages = [];
 // Login Logic
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const username = usernameInput.value.trim();
-  const password = passwordInput.value.trim();
+  const username = usernameInput.value;
+  const password = passwordInput.value;
 
   // Admin Login
   if (username === adminUsername && password === adminPassword) {
@@ -31,7 +33,7 @@ loginForm.addEventListener('submit', (e) => {
     loginContainer.classList.add('hidden');
     userSection.classList.remove('hidden');
   } else {
-    document.getElementById('login-error').style.display = 'block';
+    alert('Invalid username or password!');
   }
 });
 
@@ -46,27 +48,22 @@ function displayMessages() {
 }
 
 // Audio Player
-const backgroundAudio = new Audio("https://www.soundjay.com/button/beep-07.wav");
+const backgroundAudio = document.getElementById("background-audio");
+const accessGrantedAudio = new Audio("https://www.soundjay.com/button/beep-07.wav");
 
 // Play Background Audio
 function playAudio() {
-  backgroundAudio.play().catch((error) => {
-      console.error("Error playing background audio:", error);
-  });
+    backgroundAudio.play().catch((error) => {
+        console.error("Error playing background audio:", error);
+    });
 }
 
 backgroundAudio.loop = true; // Loop Audio
 backgroundAudio.onerror = function () {
-  console.error("Failed to load the audio file. Please check the file path.");
+    console.error("Failed to load the audio file. Please check the file path.");
 };
 
-// Handle Send Contact Message Button (For Admin to respond)
-sendContactMessageButton.addEventListener('click', () => {
-  alert('Message Sent to Customer!');
-});
-
-// Open Contact Chat in New Tab (Simulate contact functionality)
-const contactButton = document.getElementById('contact-button');
+// Open Contact Chat in New Tab
 contactButton.addEventListener('click', () => {
   const chatWindow = window.open('', '_blank', 'width=500,height=700');
   chatWindow.document.write(`
