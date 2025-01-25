@@ -18,7 +18,7 @@ loginForm.addEventListener('submit', (e) => {
 
   if (username === adminUsername && password === adminPassword) {
     // Open Admin page in new tab
-    window.open('admin.html', '_blank');
+    window.open('YesWeAreTopNumStoreOwnersSOULxHENEX.html', '_blank');
     // Clear login fields after successful login
     usernameInput.value = '';
     passwordInput.value = '';
